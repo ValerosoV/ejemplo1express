@@ -16,12 +16,16 @@ const express = require('express');
 const app = express();
 const port = 3000; /*este es el puerto que se usara*/
 const animalRoutes = require("./routes/animal");
+
+const authRoutes= require("./routes/authentication");
 const mongoose = require("mongoose");
 require('dotenv').config();
 app.use(parser.urlencoded({ extended: false })); //permite leer los datos que vienen en la petición
 app.use(parser.json()); // transforma los datos a formato JSON
 //Gestión de las rutas usando el middleware
 app.use("/api", animalRoutes); //para manejar esta api escribimos /api + la tura de animal Routes
+
+app.use("/api",authRoutes);
 app.use(express.json());
 //Conexión a la base de datos
 mongoose

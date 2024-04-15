@@ -5,7 +5,7 @@ const router = express.Router(); //manejador de rutas de express
 const animalSchema = require("../models/animals"); //llamado al esquema en los modelos
 
 //Nuevo animal
-router.post("/animals" /*ruta usada*/, (req, res)/*función dflecha*/ => {   //petición de post
+router.post("/animals" /*ruta usada*/, (req, res)/*función flecha*/ => {   //petición de post
     const animal /*crear una constante llamada animal*/ = /*definida por el esquema animal*/ animalSchema(req.body /*el esquema solicita el body del post*/);
     animal       /*usando la constante animal*/
         .save()                                         //guardamos un documentos/objetos en la base de datos
@@ -13,7 +13,7 @@ router.post("/animals" /*ruta usada*/, (req, res)/*función dflecha*/ => {   //p
         .catch((error) => res.json({ message: error }));//si sale error, atrapelo 
 });
 
-router.get("/animals", (req, res) => {   //petición de get
+router.get("/animals", (req, res) => {   //petición de tipo get
 
 
     animalSchema
